@@ -2,5 +2,17 @@ export {
   fetchRequest,
   fetchSuccess,
   fetchError,
-  fetchData
+  fetchData,
+  postRequest,
+  postSuccess,
+  postError,
+  postData,
+  deleteRequest,
+  deleteSuccess,
+  deleteError,
+  deleteData,
+  updateRequest,
+  updateSuccess,
+  updateError,
+  updateData
 } from "./actionCreators";

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchData } from "../redux/actions";
 import "./App.scss";
 import SmurfForm from "./SmurfForm";
+import SmurfList from "./SmurfList";
 class App extends Component {
   async componentDidMount() {
     await this.props.fetchData();
@@ -16,6 +17,7 @@ class App extends Component {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
         <SmurfForm />
+        <SmurfList />
       </div>
     );
   }
