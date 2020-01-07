@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TextInput from "./forms/TextInput";
+import { postData, updateData } from "../redux/actions/";
 
-function SmurfForm() {
+function SmurfForm(props) {
+  useEffect(() => {
+    console.log("STATE", props.data);
+    console.log("UPDATING", props.updating);
+  }, [props.data, props.updating]);
+
   return (
     <div>
       <Formik
+        enableReinitialize
         initialValues={{
-          name: "",
-          age: 0,
-          height: ""
+          name: props.updating.name || "",
+          age: props.updating.age || 0,
+          height: props.updating.height || ""
         }}
         validationSchema={Yup.object({
           name: Yup.string()
@@ -23,11 +31,24 @@ function SmurfForm() {
             .max(20, "No smurf is that tall")
             .required("Required")
         })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+        onSubmit={async (
+          values,
+          { setSubmitting, setErrors, setStatus, resetForm }
+        ) => {
+          try {
+            if (!props.updating) {
+              await props.postData(values);
+            } else {
+              await props.updateData(props.updating, values);
+            }
+            console.log(values);
+            resetForm({});
+            setStatus({ success: true });
+          } catch (error) {
+            setStatus({ success: false });
             setSubmitting(false);
-          }, 400);
+            setErrors({ submit: error.message });
+          }
         }}
       >
         <Form>
@@ -49,11 +70,27 @@ function SmurfForm() {
             type="text"
             placeholder="Write Value of Height Here Only..."
           />
-          <button type="submit">Submit</button>
+          <button type="submit">
+            {props.updating.name ? "Update" : "Submit"}
+          </button>
         </Form>
       </Formik>
     </div>
   );
 }
 
-export default SmurfForm;
+const mapStateToProps = state => {
+  return {
+    data: state.data,
+    updating: state.updating
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    postData: payload => dispatch(postData(payload)),
+    updateData: (oldUser, user) => dispatch(updateData(oldUser, user))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);
