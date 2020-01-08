@@ -1,3 +1,7 @@
+### View My Completed Work: https://kabeh2.github.io/Sprint-Challenge-State-Management-Smurfs/
+
+**CURRENTLY NODE SERVER NOT CONNECTED TO WEB**
+
 # Sprint Challenge: State Management - Smurfs
 
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored the context API, the reducer pattern, and Redux. In your challenge for this Sprint, you will demonstrate proficiency by creating an application that uses ReactJS to consume live data retrieved from the World Wide Web.
