@@ -12,7 +12,10 @@ function SmurfForm(props) {
   }, [props.data, props.updating]);
 
   return (
-    <div>
+    <div className="container card col-10 col-md-8 my-4 p-4">
+      <h3 className="font-weight-bold text-uppercase text-primary">
+        {props.updating.name ? "Update Smurf" : "Add Smurf"}
+      </h3>
       <Formik
         enableReinitialize
         initialValues={{
@@ -25,7 +28,8 @@ function SmurfForm(props) {
             .max(15, "Must be 15 characters or less")
             .required("Required"),
           age: Yup.number()
-            .moreThan(0, "Must be at least 1 years old")
+            .moreThan(0.999999999, "Must be at least 1 years old")
+            .round()
             .required("Required"),
           height: Yup.number()
             .max(20, "No smurf is that tall")
@@ -36,11 +40,10 @@ function SmurfForm(props) {
           { setSubmitting, setErrors, setStatus, resetForm }
         ) => {
           try {
-            if (!props.updating) {
-              await props.postData(values);
-            } else {
-              await props.updateData(props.updating, values);
-            }
+            props.updating.name
+              ? await props.updateData(props.updating, values)
+              : await props.postData(values);
+
             console.log(values);
             resetForm({});
             setStatus({ success: true });
@@ -51,7 +54,7 @@ function SmurfForm(props) {
           }
         }}
       >
-        <Form>
+        <Form className="d-flex flex-wrap justify-content-center text-left">
           <TextInput
             label="Full Name"
             name="name"
@@ -70,7 +73,10 @@ function SmurfForm(props) {
             type="text"
             placeholder="Write Value of Height Here Only..."
           />
-          <button type="submit">
+          <button
+            type="submit"
+            className="btn btn-outline-primary mx-3 justify-self-around"
+          >
             {props.updating.name ? "Update" : "Submit"}
           </button>
         </Form>

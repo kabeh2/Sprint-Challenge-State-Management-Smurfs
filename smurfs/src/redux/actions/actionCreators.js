@@ -36,26 +36,6 @@ export const fetchData = () => {
   };
 };
 
-export const postRequest = () => {
-  return {
-    type: actionType.POST_REQUEST
-  };
-};
-
-export const postSuccess = data => {
-  return {
-    type: actionType.POST_SUCCESS,
-    payload: data
-  };
-};
-
-export const postError = error => {
-  return {
-    type: actionType.POST_ERROR,
-    payload: error.message
-  };
-};
-
 export const postData = payload => {
   return async dispatch => {
     // GET DATA OBJECT YOU ARE POSTING
@@ -67,24 +47,11 @@ export const postData = payload => {
 
       // ADD POST DATA TO CLIENT STATE
       const data = [...users];
-      dispatch(postSuccess(data));
+      dispatch(fetchSuccess(data));
     } catch (error) {
       // DISPATCH ERROR MESSAGE
-      dispatch(postError(error));
+      dispatch(fetchError(error));
     }
-  };
-};
-
-export const deleteRequest = () => {
-  return {
-    type: actionType.DELETE_REQUEST
-  };
-};
-
-export const deleteSuccess = data => {
-  return {
-    type: actionType.DELETE_SUCCESS,
-    payload: data
   };
 };
 
@@ -97,13 +64,13 @@ export const deleteError = (data, error) => {
 
 export const deleteData = id => {
   return async (dispatch, getState) => {
-    dispatch(deleteRequest());
+    dispatch(fetchRequest());
     // store current state in previousSmurfs
     const previousSmurfs = getState().data;
 
     // optimistically, update on client side
     const smurfs = [...getState().data].filter(smurf => smurf.id !== id);
-    dispatch(deleteSuccess(smurfs));
+    dispatch(fetchSuccess(smurfs));
 
     // server side update. if any fail, rollback the state with previousSmurfs
     try {
@@ -121,20 +88,6 @@ export const updateRequest = data => {
   };
 };
 
-export const updateSuccess = data => {
-  return {
-    type: actionType.UPDATE_SUCCESS,
-    payload: data
-  };
-};
-
-export const updateError = error => {
-  return {
-    type: actionType.UPDATE_ERROR,
-    payload: error.message
-  };
-};
-
 export const updateData = (oldUser, user) => {
   return async dispatch => {
     // DATA OBJ BEING USED TO UPDATE
@@ -144,9 +97,9 @@ export const updateData = (oldUser, user) => {
         `${apiEndpoint}/${oldUser.id}`,
         user
       );
-      dispatch(updateSuccess(users));
+      dispatch(fetchSuccess(users));
     } catch (error) {
-      dispatch(updateError(error.message));
+      dispatch(fetchError(error.message));
     }
 
     // UPDATE SERVER WITH PUT REQUEST

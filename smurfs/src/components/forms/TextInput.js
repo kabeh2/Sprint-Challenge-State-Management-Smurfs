@@ -6,13 +6,15 @@ const MyTextInput = ({ label, ...props }) => {
   // which we can spread on <input> and also replace ErrorMessage entirely.
   const [field, meta] = useField(props);
   return (
-    <>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
+    <div className="form-group col-md-4">
+      <label htmlFor={props.id || props.name} className="text-primary">
+        {label}
+      </label>
+      <input className="text-input form-control" {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <div className="error text-danger">{meta.error}</div>
       ) : null}
-    </>
+    </div>
   );
 };
 
