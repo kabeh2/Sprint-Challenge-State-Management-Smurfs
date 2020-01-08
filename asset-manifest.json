@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Sprint-Challenge-State-Management-Smurfs/static/css/main.5016c4f0.chunk.css",
+    "main.js": "/Sprint-Challenge-State-Management-Smurfs/static/js/main.282965b5.chunk.js",
+    "main.js.map": "/Sprint-Challenge-State-Management-Smurfs/static/js/main.282965b5.chunk.js.map",
+    "runtime-main.js": "/Sprint-Challenge-State-Management-Smurfs/static/js/runtime-main.a497d0ff.js",
+    "runtime-main.js.map": "/Sprint-Challenge-State-Management-Smurfs/static/js/runtime-main.a497d0ff.js.map",
+    "static/css/2.64a99b10.chunk.css": "/Sprint-Challenge-State-Management-Smurfs/static/css/2.64a99b10.chunk.css",
+    "static/js/2.a100cd41.chunk.js": "/Sprint-Challenge-State-Management-Smurfs/static/js/2.a100cd41.chunk.js",
+    "static/js/2.a100cd41.chunk.js.map": "/Sprint-Challenge-State-Management-Smurfs/static/js/2.a100cd41.chunk.js.map",
+    "index.html": "/Sprint-Challenge-State-Management-Smurfs/index.html",
+    "precache-manifest.978f7f57d44d8facc4b8bdf58eb31442.js": "/Sprint-Challenge-State-Management-Smurfs/precache-manifest.978f7f57d44d8facc4b8bdf58eb31442.js",
+    "service-worker.js": "/Sprint-Challenge-State-Management-Smurfs/service-worker.js",
+    "static/css/2.64a99b10.chunk.css.map": "/Sprint-Challenge-State-Management-Smurfs/static/css/2.64a99b10.chunk.css.map",
+    "static/css/main.5016c4f0.chunk.css.map": "/Sprint-Challenge-State-Management-Smurfs/static/css/main.5016c4f0.chunk.css.map",
+    "static/js/2.a100cd41.chunk.js.LICENSE": "/Sprint-Challenge-State-Management-Smurfs/static/js/2.a100cd41.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a497d0ff.js",
+    "static/css/2.64a99b10.chunk.css",
+    "static/js/2.a100cd41.chunk.js",
+    "static/css/main.5016c4f0.chunk.css",
+    "static/js/main.282965b5.chunk.js"
+  ]
+}
