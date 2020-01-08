@@ -11,11 +11,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+      <div className="App py-4">
+        <h1 className="text-primary">SMURFS! 2.0 W/ Redux</h1>
+        <p className="col-sm-6 mx-auto">
+          React CRUD App using Redux for State Management, Axios, Formik Forms
+          with Yup Validation, and Bootstrap styling.
+        </p>
+
+        {this.props.state.error ? <p>{this.props.state.error}</p> : null}
         <SmurfForm />
         <SmurfList />
       </div>

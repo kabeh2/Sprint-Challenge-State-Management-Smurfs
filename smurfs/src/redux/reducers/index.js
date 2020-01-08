@@ -29,46 +29,6 @@ const reducer = (state = initialState, action) => {
         error: action.payload,
         updating: {}
       };
-    case actionType.POST_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        updating: {}
-      };
-    case actionType.POST_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        data: action.payload,
-        updating: {}
-      };
-    case actionType.POST_ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-        updating: {}
-      };
-    case actionType.POST_OBJ:
-      return {
-        ...state,
-        loading: false,
-        data: action.payload,
-        updating: {}
-      };
-    case actionType.DELETE_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        updating: {}
-      };
-    case actionType.DELETE_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        data: action.payload,
-        updating: {}
-      };
     case actionType.DELETE_ERROR:
       return {
         ...state,
@@ -82,20 +42,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: true,
         updating: action.payload
-      };
-    case actionType.UPDATE_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        data: action.payload,
-        updating: {}
-      };
-    case actionType.UPDATE_ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-        updating: {}
       };
     default:
       return state;

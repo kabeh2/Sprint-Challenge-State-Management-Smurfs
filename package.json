@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Redux Sprint Challenge",
   "main": "server.js",
+  "homepage": "https://kabeh2.github.io/Sprint-Challenge-State-Management-Smurfs/",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -16,12 +19,12 @@
   "bugs": {
     "url": "https://github.com/LambdaSchool/Sprint-Challenge--Redux/issues"
   },
-  "homepage": "https://github.com/LambdaSchool/Sprint-Challenge--Redux#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "nodemon": "^1.19.1"
   }
 }
